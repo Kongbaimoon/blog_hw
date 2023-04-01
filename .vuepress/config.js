@@ -2,7 +2,7 @@ module.exports = {
   "title": "oy'blog",
   "description": "blog",
   "dest": "public",
-  "base": "/blog_hw/",
+  "base": "/blog_hw/public",
   "head": [
     [
       "link",
