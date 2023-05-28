@@ -1,0 +1,22 @@
+name: Add Reaction to Comment
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  add-reaction:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Add reaction
+        uses: octokit/request-action@v2.x
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          route: POST /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions
+          media-type: '{"reactions": "eyes"}'
+          headers: '{"Accept": "application/vnd.github.squirrel-girl-preview+json"}'
+          if: contains(['user1', 'user2', 'user3'], github.event.comment.user.login)
