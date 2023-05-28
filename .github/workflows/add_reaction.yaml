@@ -19,4 +19,4 @@ jobs:
           route: POST /repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions
           media-type: '{"reactions": "eyes"}'
           headers: '{"Accept": "application/vnd.github.squirrel-girl-preview+json"}'
-          if: contains(['user1', 'user2', 'user3'], github.event.comment.user.login)
+          if: contains(['Kongbaimoon','user1', 'user2', 'user3'], github.event.comment.user.login)
